@@ -1,6 +1,22 @@
 # Akito Research Assistant
 
-Akito is a local Computer Engineering research assistant. It answers from files indexed in ChromaDB and can optionally search the web, save topic-related pages into its research library, and inspect images with a local vision model.
+Akito is a Computer Engineering research assistant. It answers from files indexed in ChromaDB and can optionally search the web, save topic-related pages into its research library, and inspect images with a vision model. You can run it locally or deploy the web interface and API using the free-tier starter configuration below.
+
+## Use the hosted service
+
+The repository is configured for a Vercel frontend and a Render API, but a public service URL is not configured in this repository yet. Once the owner completes deployment, add the Vercel site URL here so users can open the hosted app directly.
+
+The current model integration expects Ollama and its models to be reachable by the API. Deploying the frontend and API does not by itself provide a hosted language or vision model. Until a model runtime is connected, model-powered chat and research features will not work for online users. The free Render service also sleeps when idle and has temporary local storage, so saved conversations, uploads, and research data may be lost. Do not use a shared public deployment for private research data.
+
+## Deploy your own instance
+
+This repository includes [Vercel and Render setup instructions](DEPLOYMENT.md). Import this repository into both platforms:
+
+1. Create the Render API from the repository's Blueprint (`render.yaml`). Render provides the API's `onrender.com` URL after deployment.
+2. Create the Vercel project from the same repository, using the repository root. Set `VITE_API_URL` to the Render API URL, then redeploy the frontend.
+3. Set Render's `AKITO_CORS_ORIGINS` to the exact Vercel site origin if you want to restrict browser access to that site.
+
+The deployment starter hosts the API and web interface; it does not install Ollama or configure persistent storage. See [DEPLOYMENT.md](DEPLOYMENT.md) for the current limitations and platform details.
 
 ## Requirements
 
