@@ -1,0 +1,3 @@
+{"id":"esp32-overview","query":"ESP32 microcontroller technical specifications and overview","expected_source_contains":"esp32_datasheet_en.pdf"}
+{"id":"esp32-pins","query":"ESP32 GPIO pin assignments and peripheral interfaces","expected_source_contains":"esp32_datasheet_en.pdf"}
+{"id":"esp32-electrical","query":"ESP32 electrical characteristics input output voltage limits","expected_source_contains":"esp32_datasheet_en.pdf"}

@@ -1,0 +1,4 @@
+# Optional local push-to-talk transcription. The first use downloads Whisper Tiny
+# into the local model cache; recordings are sent only to this FastAPI service.
+transformers
+torch

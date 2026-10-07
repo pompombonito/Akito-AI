@@ -1,0 +1,27 @@
+# Local secrets and environment configuration
+.env
+.env.*
+!.env.example
+
+# Python virtual environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local research data, uploads, learned pages, and vector indexes
+documents/
+database/
+data/
+*.sqlite
+*.sqlite3
+
+# Frontend dependencies and generated output
+frontend/node_modules/
+frontend/dist/
+frontend/.vercel/
+.vercel/
+
+# Local model downloads
+models/
