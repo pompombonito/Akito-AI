@@ -56,9 +56,10 @@ from internet_search import fetch_page_text, search_web, validate_public_url
 
 
 app = FastAPI(title="Akito Research Studio API", version="1.0.0")
+cors_origins = [origin.strip() for origin in os.getenv("AKITO_CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if origin.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=cors_origins,
     allow_credentials=False,
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Content-Type"],

@@ -1,5 +1,7 @@
+const API_BASE = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+
 export async function api(path, options = {}) {
-  const response = await fetch(path, options);
+  const response = await fetch(`${API_BASE}${path}`, options);
   const contentType = response.headers.get("content-type") || "";
   const payload = contentType.includes("application/json")
     ? await response.json()
@@ -20,7 +22,7 @@ export async function postJson(path, payload) {
 }
 
 export async function streamChat(payload, onSources, onToken, onTask, signal) {
-  const response = await fetch("/api/chat", {
+  const response = await fetch(`${API_BASE}/api/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
